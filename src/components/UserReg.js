@@ -41,7 +41,7 @@ function UserReg() {
     validate,
   });
 
-  console.log("Form errors", formik.errors);
+  console.log("Visited Fields", formik.touched);
 
   return (
     <div>
@@ -53,9 +53,10 @@ function UserReg() {
             id="name"
             name="name"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.name}
           />
-          {formik.errors.name ? (
+          { formik.touched.name && formik.errors.name ? (
             <div className="error">{formik.errors.name}</div>
           ) : null}
         </div>
@@ -67,9 +68,10 @@ function UserReg() {
             id="address"
             name="address"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.address}
           />
-          {formik.errors.address ? (
+          { formik.touched.address && formik.errors.address ? (
             <div className="error">{formik.errors.address}</div>
           ) : null}
         </div>
@@ -81,9 +83,10 @@ function UserReg() {
             id="email"
             name="email"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.email}
           />
-          {formik.errors.email ? (
+          { formik.touched.email && formik.errors.email ? (
             <div className="error">{formik.errors.email}</div>
           ) : null}
         </div>
